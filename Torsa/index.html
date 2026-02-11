@@ -47,6 +47,7 @@
             padding: 20px;
         }
 
+        /* --- Main Container --- */
         .app-container {
             width: 100%;
             max-width: 480px;
@@ -61,6 +62,7 @@
             overflow: hidden;
         }
 
+        /* --- Header Profile Section --- */
         .profile-header {
             text-align: center;
             margin-bottom: 24px;
@@ -120,116 +122,563 @@
             font-weight: 700;
             letter-spacing: -0.5px;
         }
+
+        /* --- Verified Badge Styles --- */
+        .verified-wrapper {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .verified-icon {
+            color: var(--instagram-blue);
+            font-size: 1.1rem;
+            cursor: help;
+            margin: 0 2px;
+        }
+
+        .verified-tooltip {
+            visibility: hidden;
+            width: 110px;
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 6px;
+            position: absolute;
+            z-index: 100;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-size: 0.75rem;
+            font-weight: 500;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            border: 1px solid #333;
+            pointer-events: none;
+        }
+
+        .verified-tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #222 transparent transparent transparent;
+        }
+
+        .verified-wrapper:hover .verified-tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* --- Premium Follower Count Badge --- */
+        .followers-badge {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            padding: 6px 16px;
+            background: linear-gradient(90deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.02));
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            animation: shimmer 3s infinite linear;
+        }
+
+        .followers-badge i {
+            color: var(--accent-gold);
+        }
+
+        @keyframes shimmer {
+            0% { box-shadow: 0 0 5px rgba(255, 215, 0, 0.1); }
+            50% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.4); }
+            100% { box-shadow: 0 0 5px rgba(255, 215, 0, 0.1); }
+        }
+
+        .female-icon {
+            color: #ff69b4;
+            font-size: 1.2rem;
+            text-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        /* --- Tabs Navigation --- */
+        .tabs-nav {
+            display: flex;
+            justify-content: space-around;
+            border-bottom: 1px solid var(--glass-border);
+            margin-bottom: 24px;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-family: var(--font-main);
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 12px 0;
+            cursor: pointer;
+            position: relative;
+            transition: color var(--transition-speed);
+        }
+
+        .tab-btn:hover {
+            color: var(--text-main);
+        }
+
+        .tab-btn.active {
+            color: var(--accent-red);
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-red);
+            box-shadow: 0 -2px 10px var(--accent-red-glow);
+        }
+
+        /* --- Cards General Style --- */
+        .info-card, .bio-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            padding-left: 10px;
+            border-left: 3px solid var(--accent-red);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        /* --- Info Table --- */
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            font-size: 0.9rem;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .label {
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .value {
+            color: var(--text-grey);
+            font-weight: 500;
+            text-align: right;
+        }
+
+        .value span.flag-icon {
+            font-size: 0.8rem;
+            margin-right: 4px;
+        }
+
+        .upgrade-btn {
+            background-color: var(--accent-orange);
+            color: #000;
+            border: none;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-left: 8px;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .upgrade-btn:hover {
+            opacity: 0.8;
+        }
+
+        /* --- Bio Section Specifics --- */
+        .bio-content {
+            color: var(--text-grey);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        
+        .bio-quote {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--accent-red);
+            font-size: 1.2rem;
+            line-height: 0;
+        }
+
+        /* --- Interest Tags --- */
+        .tags-section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            padding: 8px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: default;
+            transition: all 0.2s ease;
+        }
+
+        .tag i {
+            color: var(--accent-red);
+            font-size: 0.7rem;
+        }
+
+        .tag:hover {
+            background: rgba(255, 31, 31, 0.15);
+            border-color: rgba(255, 31, 31, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 31, 31, 0.1);
+        }
+
+        /* --- Action Buttons --- */
+        .actions-container {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 14px;
+            border-radius: 12px;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-chat {
+            background-color: var(--accent-red);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 31, 31, 0.3);
+        }
+
+        .btn-chat:hover {
+            background-color: #d61414;
+            box-shadow: 0 6px 20px rgba(255, 31, 31, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn-email {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid var(--glass-border);
+        }
+
+        .btn-email:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #555;
+            border-top: 1px solid var(--glass-border);
+            padding-top: 20px;
+        }
+
+        footer p {
+            margin-bottom: 4px;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .app-container {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 400px) {
+            .info-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+            .value {
+                text-align: left;
+            }
+            .display-name {
+                font-size: 1.3rem;
+            }
+        }
     </style>
 </head>
 <body>
 
-<main class="app-container">
-<header class="profile-header">
-    <div class="avatar-wrapper">
-        <img src="https://picsum.photos/seed/torsa123/200/200" alt="Torsa Avatar" class="avatar">
-        <div class="rank-badge" title="Rank 88">
-            <i class="fa-solid fa-shield-halved"></i> 88
-        </div>
-    </div>
+    <main class="app-container">
+        <!-- Header Profile Section -->
+        <header class="profile-header">
+            <div class="avatar-wrapper">
+                <img src="https://picsum.photos/seed/torsa123/200/200" alt="Torsa Avatar" class="avatar">
+                <div class="rank-badge" title="Rank 71">
+                    <i class="fa-solid fa-shield-halved"></i> 71
+                </div>
+            </div>
+            
+            <div class="profile-name-row">
+                <h1 class="display-name">Torsa Farooqi (Blowjob Queen)</h1>
+                
+                <!-- Verified Badge -->
+                <div class="verified-wrapper">
+                    <i class="fa-solid fa-circle-check verified-icon"></i>
+                    <span class="verified-tooltip">Verified Profile</span>
+                </div>
 
-    <div class="profile-name-row">
-        <h1 class="display-name">Torsa Farooqi</h1>
+                <i class="fa-solid fa-venus female-icon"></i>
+            </div>
 
-        <div class="verified-wrapper">
-            <i class="fa-solid fa-circle-check verified-icon"></i>
-            <span class="verified-tooltip">Verified Profile</span>
-        </div>
+            <!-- NEW: Premium Follower Count -->
+            <div class="followers-badge">
+                <i class="fa-solid fa-user-group"></i> 256K Subscribers
+            </div>
+            
+            <p class="subtitle">Diamond League | Level 88</p>
+        </header>
 
-        <i class="fa-solid fa-venus female-icon"></i>
-    </div>
+        <!-- Tabs Navigation Bar -->
+        <nav class="tabs-nav">
+            <button class="tab-btn active" onclick="switchTab('profile')">Profile</button>
+            <button class="tab-btn" onclick="switchTab('photos')">Photos</button>
+            <button class="tab-btn" onclick="switchTab('league')">League & Level</button>
+        </nav>
 
-    <div class="followers-badge">
-        <i class="fa-solid fa-user-group"></i> 256K Subscribers
-    </div>
+        <!-- Main Profile Card -->
+        <section id="tab-profile" class="tab-content">
+            <div class="info-card">
+                <h2 class="card-title">My Information</h2>
 
-    <p class="subtitle">Diamond League | Level 88</p>
-</header>
+                <div class="info-row">
+                    <span class="label">Name</span>
+                    <span class="value">Torsa</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="label">From</span>
+                    <span class="value"><i class="fa-solid fa-flag-usa flag-icon"></i>United States, New York</span>
+                </div>
 
-<section id="tab-profile" class="tab-content">
-<div class="info-card">
-<h2 class="card-title">My Information</h2>
+                <div class="info-row">
+                    <span class="label">League & Level</span>
+                    <span class="value">Diamond league, level 88</span>
+                </div>
 
-<div class="info-row">
-<span class="label">Name</span>
-<span class="value">Torsa Farooqi</span>
-</div>
+                <div class="info-row">
+                    <span class="label">Organisation</span>
+                    <span class="upgrade-btn">kink Productions</a></span>
+                </div>
 
-<div class="info-row">
-<span class="label">From</span>
-<span class="value"><i class="fa-solid fa-flag-usa flag-icon"></i>United States, New York</span>
-</div>
+                <div class="info-row">
+                    <span class="label">Languages</span>
+                    <span class="value">English, Hindi, Bengali</span>
+                </div>
 
-<div class="info-row">
-<span class="label">League & Level</span>
-<span class="value">Diamond League, Level 88</span>
-</div>
+                <div class="info-row">
+                    <span class="label">Age</span>
+                    <span class="value">21 years old</span>
+                </div>
 
-<div class="info-row">
-<span class="label">Membership</span>
-<span class="value">Premium</span>
-</div>
+                <div class="info-row">
+                    <span class="label">Interested in</span>
+                    <span class="value">Men</span>
+                </div>
 
-<div class="info-row">
-<span class="label">Languages</span>
-<span class="value">English, Hindi, Bengali</span>
-</div>
+                <div class="info-row">
+                    <span class="label">Body type</span>
+                    <span class="value">Athletic</span>
+                </div>
 
-<div class="info-row">
-<span class="label">Age</span>
-<span class="value">21 years old</span>
-</div>
+                <div class="info-row">
+                    <span class="label">Ethnicity</span>
+                    <span class="value">Asian</span>
+                </div>
 
-<div class="info-row">
-<span class="label">Interested in</span>
-<span class="value">Men</span>
-</div>
+                <div class="info-row">
+                    <span class="label">Hair</span>
+                    <span class="value">Black</span>
+                </div>
 
-<div class="info-row">
-<span class="label">Body type</span>
-<span class="value">Athletic</span>
-</div>
+                <div class="info-row">
+                    <span class="label">Eye color</span>
+                    <span class="value">Brown</span>
+                </div>
 
-<div class="info-row">
-<span class="label">Ethnicity</span>
-<span class="value">Asian</span>
-</div>
+                <div class="info-row">
+                    <span class="label">Mastered Moves</span>
+                    <span class="value">Blowjob, Handjob, Anal And Many More</span>
+                </div>
+            </div>
 
-<div class="info-row">
-<span class="label">Hair</span>
-<span class="value">Black</span>
-</div>
+            <!-- Bio Section -->
+            <div class="bio-card">
+                <h2 class="card-title">About Me</h2>
+                <div class="bio-content">
+                    <i class="fa-solid fa-quote-left bio-quote"></i>
+                    Indian-born, U.S. citizen formerly a software developer, now a full-time fantasy provider by passion and profession. Salpingectomy complete zero pregnancy worries, maximum freedom and fun potential. I don’t perform explicit sex on camera; I’m a sex model for Kink.com and a sex worker off-cam. Now a trainee pornstar, evolving into a bold, unapologetic adult icon. Horny 24/7 always craving, always ready, always dangerous.
+                </div>
+            </div>
 
-<div class="info-row">
-<span class="label">Eye color</span>
-<span class="value">Brown</span>
-</div>
+            <!-- Interest Tags Section -->
+            <div class="tags-section">
+                <h3 class="section-title">Interests</h3>
+                <div class="tags-container">
+                    <div class="tag"><i class="fa-solid fa-heart"></i> Anal</div>
+                    <div class="tag"><i class="fa-solid fa-heart"></i> BDSM</div>
+                    <div class="tag"><i class="fa-solid fa-heart"></i> Blowjob</div>
+                    <div class="tag"><i class="fa-solid fa-heart"></i> Bondage</div>
+                    <div class="tag"><i class="fa-solid fa-heart"></i> Deepthroat</div>
+                    <div class="tag"><i class="fa-solid fa-heart"></i> Doggy Style</div>
+                    <div class="tag"><i class="fa-solid fa-heart"></i> Domination</div>
+                    <div class="tag"><i class="fa-solid fa-heart"></i> Group</div>
+                    <div class="tag"><i class="fa-solid fa-heart"></i> Hardcore</div>
+                    <div class="tag"><i class="fa-solid fa-heart"></i> Role-Playing</div>
+                    <div class="tag"><i class="fa-solid fa-heart"></i> Psychology</div>
+                    <div class="tag"><i class="fa-solid fa-heart"></i> Missionary</div>
+<div class="tag"><i class="fa-solid fa-heart"></i> Doggy Style</div>
+<div class="tag"><i class="fa-solid fa-heart"></i> Cowgirl</div>
+<div class="tag"><i class="fa-solid fa-heart"></i> Reverse Cowgirl</div>
+<div class="tag"><i class="fa-solid fa-heart"></i> Spooning</div>
+<div class="tag"><i class="fa-solid fa-heart"></i> Lotus</div>
+<div class="tag"><i class="fa-solid fa-heart"></i> Standing</div>
+<div class="tag"><i class="fa-solid fa-heart"></i> Face-to-Face Sitting</div>
+<div class="tag"><i class="fa-solid fa-heart"></i> Lap Dance Position</div>
+<div class="tag"><i class="fa-solid fa-heart"></i> Butterfly</div>
+<div class="tag"><i class="fa-solid fa-heart"></i> Side-by-Side</div>
+<div class="tag"><i class="fa-solid fa-heart"></i> Flatiron</div>
+<div class="tag"><i class="fa-solid fa-heart"></i> The Bridge</div>
+<div class="tag"><i class="fa-solid fa-heart"></i> The Chair</div>
+<div class="tag"><i class="fa-solid fa-heart"></i> The Scoop</div>
+<div class="tag"><i class="fa-solid fa-heart"></i> The Pretzel</div>
+<div class="tag"><i class="fa-solid fa-heart"></i> The Cross</div>
+<div class="tag"><i class="fa-solid fa-heart"></i> The T-Position</div>
+<div class="tag"><i class="fa-solid fa-heart"></i> The Amazon</div>
+<div class="tag"><i class="fa-solid fa-heart"></i> The Deck Chair</div>
+<div class="tag"><i class="fa-solid fa-heart"></i> The Y-Position</div>
+<div class="tag"><i class="fa-solid fa-heart"></i> The Crab</div>
+<div class="tag"><i class="fa-solid fa-heart"></i> The Lazy Dog</div>
+<div class="tag"><i class="fa-solid fa-heart"></i> The Spider</div>
+<div class="tag"><i class="fa-solid fa-heart"></i> The Pillow Lift</div>
 
-<div class="info-row">
-<span class="label">Subculture</span>
-<span class="value">None</span>
-</div>
-</div>
+                </div>
+            </div>
 
-<div class="bio-card">
-<h2 class="card-title">About Me</h2>
-<div class="bio-content">
-<i class="fa-solid fa-quote-left bio-quote"></i>
-Indian-born, U.S. citizen, formerly a software developer — now a bold digital creator, fantasy provider, and rising adult personality. Confident, expressive, ambitious, and always evolving.
-</div>
-</div>
-</section>
+            <!-- Action Buttons -->
+            <div class="actions-container">
+                <a href="https://www.instagram.com/torsa.sucks.slowly/" target="_blank" class="action-btn btn-chat">
+                    <i class="fa-brands fa-instagram"></i> Let’s Chat
+                </a>
+                <a href="mailto:torsafarooqi@gmail.com" class="action-btn btn-email">
+                    <i class="fa-regular fa-envelope"></i> Email
+                </a>
+            </div>
+        </section>
 
-<footer>
-<p>&copy; 2026 Torsa</p>
-<p>All rights reserved</p>
-</footer>
+        <!-- Placeholder Sections for other tabs -->
+        <section id="tab-photos" class="tab-content" style="display: none; text-align: center; padding: 40px; color: #666;">
+            <i class="fa-regular fa-images" style="font-size: 3rem; margin-bottom: 10px;"></i>
+            <p>No photos uploaded yet.</p>
+        </section>
 
-</main>
+        <section id="tab-league" class="tab-content" style="display: none; text-align: center; padding: 40px; color: #666;">
+            <i class="fa-solid fa-trophy" style="font-size: 3rem; margin-bottom: 10px;"></i>
+            <p>League stats coming soon.</p>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Torsa Farooqi</p>
+            <p>All rights reserved</p>
+        </footer>
+    </main>
+
+    <script>
+        function switchTab(tabName) {
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            const clickedBtn = Array.from(buttons).find(btn => btn.innerText.toLowerCase().includes(tabName === 'league' ? 'league' : tabName));
+            if(clickedBtn) clickedBtn.classList.add('active');
+
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.style.display = 'none');
+
+            const activeContent = document.getElementById('tab-' + tabName);
+            if(activeContent) {
+                activeContent.style.display = 'block';
+                activeContent.style.opacity = 0;
+                setTimeout(() => {
+                    activeContent.style.transition = 'opacity 0.3s ease';
+                    activeContent.style.opacity = 1;
+                }, 10);
+            }
+        }
+    </script>
 </body>
 </html>
