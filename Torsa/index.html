@@ -1,16 +1,163 @@
-<!-- Header Profile Section -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Torsa Profile</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+body {
+    background: #0b0f19;
+    font-family: Inter, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-header {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.avatar-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #3b82f6;
+}
+
+.rank-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(135deg, #3b82f6, #06b6d4);
+    padding: 6px 10px;
+    border-radius: 14px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.profile-name-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.display-name {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.female-icon {
+    color: hotpink;
+}
+
+.verified-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.verified-icon {
+    color: #1d9bf0;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.verified-tooltip {
+    position: absolute;
+    bottom: -26px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: black;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.2s ease;
+    white-space: nowrap;
+}
+
+.verified-wrapper:hover .verified-tooltip {
+    opacity: 1;
+}
+
+.followers-badge {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #9ca3af;
+}
+
+.subtitle {
+    margin-top: 8px;
+    font-size: 16px;
+    color: #38bdf8;
+}
+
+.info-section {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.label {
+    color: #9ca3af;
+}
+
+.value {
+    font-weight: 600;
+}
+
+.tags-container {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+    background: rgba(59,130,246,0.15);
+    color: #60a5fa;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+</style>
+</head>
+
+<body>
+
 <header class="profile-header">
     <div class="avatar-wrapper">
         <img src="https://picsum.photos/seed/torsa123/200/200" alt="Torsa Avatar" class="avatar">
-        <div class="rank-badge" title="Rank 88">
+        <div class="rank-badge">
             <i class="fa-solid fa-shield-halved"></i> 88
         </div>
     </div>
-    
+
     <div class="profile-name-row">
         <h1 class="display-name">Torsa Farooqi</h1>
-        
-        <!-- Verified Badge -->
+
         <div class="verified-wrapper">
             <i class="fa-solid fa-circle-check verified-icon"></i>
             <span class="verified-tooltip">Verified Profile</span>
@@ -19,10 +166,66 @@
         <i class="fa-solid fa-venus female-icon"></i>
     </div>
 
-    <!-- Premium Follower Count -->
     <div class="followers-badge">
         <i class="fa-solid fa-user-group"></i> 256K Subscribers
     </div>
-    
+
     <p class="subtitle">Diamond League | Level 88</p>
 </header>
+
+<section class="info-section">
+
+    <div class="info-row">
+        <span class="label">Name</span>
+        <span class="value">Torsa Farooqi</span>
+    </div>
+
+    <div class="info-row">
+        <span class="label">League & Level</span>
+        <span class="value">Diamond League, Level 88</span>
+    </div>
+
+    <div class="info-row">
+        <span class="label">Membership</span>
+        <span class="value">Premium</span>
+    </div>
+
+    <div class="info-row">
+        <span class="label">Status</span>
+        <span class="value">Elite Creator</span>
+    </div>
+
+    <h3 style="margin-top: 24px;">Interests</h3>
+
+    <div class="tags-container">
+        <div class="tag"><i class="fa-solid fa-heart"></i> Romance</div>
+        <div class="tag"><i class="fa-solid fa-heart"></i> Confidence</div>
+        <div class="tag"><i class="fa-solid fa-heart"></i> Fashion</div>
+        <div class="tag"><i class="fa-solid fa-heart"></i> Photography</div>
+        <div class="tag"><i class="fa-solid fa-heart"></i> Content Creation</div>
+        <div class="tag"><i class="fa-solid fa-heart"></i> Social Media</div>
+        <div class="tag"><i class="fa-solid fa-heart"></i> Roleplay (Safe)</div>
+        <div class="tag"><i class="fa-solid fa-heart"></i> Fantasy Themes</div>
+        <div class="tag"><i class="fa-solid fa-heart"></i> Seduction Aesthetics</div>
+        <div class="tag"><i class="fa-solid fa-heart"></i> Emotional Connection</div>
+        <div class="tag"><i class="fa-solid fa-heart"></i> Confidence Building</div>
+        <div class="tag"><i class="fa-solid fa-heart"></i> Personal Branding</div>
+        <div class="tag"><i class="fa-solid fa-heart"></i> Music</div>
+        <div class="tag"><i class="fa-solid fa-heart"></i> Art</div>
+        <div class="tag"><i class="fa-solid fa-heart"></i> Film & Cinema</div>
+        <div class="tag"><i class="fa-solid fa-heart"></i> Psychology</div>
+        <div class="tag"><i class="fa-solid fa-heart"></i> Aesthetic Lifestyle</div>
+        <div class="tag"><i class="fa-solid fa-heart"></i> Luxury Vibes</div>
+        <div class="tag"><i class="fa-solid fa-heart"></i> Creative Writing</div>
+        <div class="tag"><i class="fa-solid fa-heart"></i> Digital Culture</div>
+        <div class="tag"><i class="fa-solid fa-heart"></i> Fan Interaction</div>
+        <div class="tag"><i class="fa-solid fa-heart"></i> Visual Storytelling</div>
+        <div class="tag"><i class="fa-solid fa-heart"></i> Aesthetic Fashion</div>
+        <div class="tag"><i class="fa-solid fa-heart"></i> Mood & Atmosphere</div>
+        <div class="tag"><i class="fa-solid fa-heart"></i> Creative Direction</div>
+    </div>
+
+</section>
+
+</body>
+</html>
