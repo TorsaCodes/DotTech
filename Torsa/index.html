@@ -672,7 +672,7 @@
     <!-- Sticky Top Bar -->
     <nav class="sticky-header" id="stickyHeader">
         <div class="sticky-left">
-            <img src="DotTech/Torsa/images/img1.jpg">
+            <img src="DotTech/Torsa/images/img1.jpg" class="sticky-avatar" alt="Torsa Farooqi">
             <div class="sticky-info">
                 <h2>
                     Torsa Farooqi
@@ -689,7 +689,7 @@
         <!-- Header / Profile Section -->
         <header class="profile-header animate-in">
             <div class="avatar-container">
-                <img src="DotTech/Torsa/images/img1.jpg">
+                <img src="DotTech/Torsa/images/img1.jpg" class="sticky-avatar" alt="Torsa Farooqi">
             </div>
 
             <div class="name-section">
@@ -927,32 +927,33 @@
             });
 
             // --- 2. Animated Counters (All Stats) ---
-            const counters = document.querySelectorAll('.stat-number');
-            counters.forEach(counter => {
-                const updateCount = () => {
-                    const target = +counter.getAttribute('data-target');
-                    const count = +counter.innerText.replace(/K/g, '000');
-                    const inc = target / 100;
+           const counters = document.querySelectorAll('.stat-number');
+counters.forEach(counter => {
+    const target = +counter.getAttribute('data-target');
+    let count = 0;
+    const increment = target / 120;
 
-                    if (count < target) {
-                        if (target === 257000) {
-                             let nextVal = Math.ceil(count + inc);
-                             if(nextVal > target) nextVal = target;
-                             counter.innerText = (nextVal / 1000).toFixed(1) + "K";
-                        } else {
-                            counter.innerText = Math.ceil(count + inc);
-                        }
-                        setTimeout(updateCount, 20);
-                    } else {
-                        if (target === 257000) {
-                            counter.innerText = "257K";
-                        } else {
-                            counter.innerText = target;
-                        }
-                    }
-                };
-                updateCount();
-            });
+    const updateCount = () => {
+        count += increment;
+
+        if (count < target) {
+            if (target === 257000) {
+                counter.innerText = Math.floor(count).toLocaleString();
+            } else {
+                counter.innerText = Math.floor(count);
+            }
+            requestAnimationFrame(updateCount);
+        } else {
+            if (target === 257000) {
+                counter.innerText = "257K";
+            } else {
+                counter.innerText = target;
+            }
+        }
+    };
+
+    updateCount();
+});
 
             // --- 3. Modal Logic ---
             const modal = document.getElementById('msgModal');
