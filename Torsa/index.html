@@ -61,7 +61,6 @@
         .delay-1 { animation-delay: 0.1s; }
         .delay-2 { animation-delay: 0.2s; }
         .delay-3 { animation-delay: 0.3s; }
-
         /* --- Sticky Header --- */
         .sticky-header {
             position: fixed;
@@ -95,7 +94,8 @@
             width: 36px;
             height: 36px;
             border-radius: 50%;
-            object-fit: cover;
+            object-fit: contain;   /* changed from cover */
+            background: #000;      /* added for clean padding */
             border: 2px solid var(--accent-color);
         }
 
@@ -126,7 +126,6 @@
         }
 
         .btn-sticky-sub:hover { transform: scale(1.05); }
-
         /* --- Layout --- */
         .container {
             max-width: 900px;
